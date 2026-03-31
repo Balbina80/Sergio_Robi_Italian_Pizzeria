@@ -1710,3 +1710,33 @@ select {
     font-size: 0.88rem;
   }
 }
+
+.footer-socials {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  opacity: 0.85;
+  transition: all 0.3s ease;
+}
+
+.social-link svg {
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  opacity: 1;
+  transform: translateX(4px);
+}
+
+.social-link:hover svg {
+  opacity: 1;
+  transform: translateX(2px);
+}
