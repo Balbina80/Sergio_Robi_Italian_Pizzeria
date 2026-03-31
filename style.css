@@ -152,10 +152,7 @@ select {
   transition: color var(--transition), opacity var(--transition);
 }
 
-.nav-links a:hover {
-  color: var(--gold-soft);
-}
-
+.nav-links a:hover,
 .nav-links a[aria-current="page"] {
   color: var(--gold-soft);
 }
@@ -271,7 +268,7 @@ select {
   background-image:
     linear-gradient(90deg, rgba(6,6,7,0.78) 0%, rgba(6,6,7,0.5) 38%, rgba(6,6,7,0.22) 68%, rgba(6,6,7,0.12) 100%),
     url("images/van_1.jpg");
-  background-position: center center;
+  background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   transform: scale(1.02);
@@ -977,11 +974,7 @@ select {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(0,0,0,0.12) 0%,
-    rgba(0,0,0,0.34) 100%
-  );
+  background: linear-gradient(180deg, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.34) 100%);
   z-index: 0;
 }
 
@@ -994,19 +987,16 @@ select {
   align-items: stretch;
 }
 
-.menu-page-copy p {
-  max-width: 640px;
-  margin-top: 0.8rem;
-  color: var(--text-soft);
-  font-size: 0.93rem;
-}
-
 .menu-page-copy h1,
 .menu-page-copy h2 {
   text-shadow: 0 10px 28px rgba(0,0,0,0.5);
 }
 
 .menu-page-copy p {
+  max-width: 640px;
+  margin-top: 0.8rem;
+  color: var(--text-soft);
+  font-size: 0.93rem;
   text-shadow: 0 6px 22px rgba(0,0,0,0.42);
 }
 
@@ -1298,10 +1288,6 @@ select {
   .logo-card {
     min-height: 210px;
   }
-
-  .menu-page-hero::before {
-    background-position: center center;
-  }
 }
 
 @media (max-width: 760px) {
@@ -1380,9 +1366,6 @@ select {
     background-image:
       linear-gradient(180deg, rgba(6,6,7,0.44) 0%, rgba(6,6,7,0.24) 28%, rgba(6,6,7,0.66) 100%),
       url("images/van_1.jpg");
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
   }
 
   .hero-inner {
@@ -1396,7 +1379,9 @@ select {
     max-width: 8.4ch;
   }
 
-  .hero-copy p {
+  .hero-copy p,
+  .section-intro p,
+  .menu-page-copy p {
     max-width: 100%;
     font-size: 0.9rem;
   }
@@ -1475,8 +1460,20 @@ select {
     font-size: 0.74rem;
   }
 
-  section {
+  section,
+  .menu-page-hero {
     padding: 3.8rem 0;
+  }
+
+  .menu-page-hero {
+    padding-bottom: 1.6rem;
+  }
+
+  .menu-page-hero::before {
+    background-image:
+      linear-gradient(180deg, rgba(6,6,7,0.72) 0%, rgba(6,6,7,0.48) 36%, rgba(6,6,7,0.78) 100%),
+      url("images/oven-pizza.jpg");
+    background-position: center;
   }
 
   .floating-badge {
@@ -1498,11 +1495,6 @@ select {
 
   h2 {
     font-size: clamp(1.6rem, 6.8vw, 2.05rem);
-  }
-
-  .section-intro p,
-  .menu-page-copy p {
-    font-size: 0.9rem;
   }
 
   .findus-day {
@@ -1535,17 +1527,6 @@ select {
   .footer-call {
     width: 100%;
     justify-content: center;
-  }
-
-  .menu-page-hero {
-    padding: 3.8rem 0 1.6rem;
-  }
-
-  .menu-page-hero::before {
-    background-image:
-      linear-gradient(180deg, rgba(6,6,7,0.72) 0%, rgba(6,6,7,0.48) 36%, rgba(6,6,7,0.78) 100%),
-      url("images/oven-pizza.jpg");
-    background-position: center;
   }
 }
 
