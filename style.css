@@ -108,8 +108,8 @@ select {
 }
 
 .brand img {
-  width: 48px;
-  height: 48px;
+  width: 58px;
+  height: 58px;
   object-fit: contain;
   border-radius: 50%;
   background:
@@ -770,9 +770,15 @@ h2 {
 }
 
 .logo-card.full-width-brand img {
-  max-width: 90px;
-  max-height: 90px;
-  margin-bottom: 1rem;
+  max-width: 110px;
+  max-height: 110px;
+  margin-bottom: 1.2rem;
+  filter: drop-shadow(0 10px 24px rgba(0,0,0,0.45));
+  transition: transform 0.4s ease;
+}
+
+.logo-card.full-width-brand:hover img {
+  transform: scale(1.05);
 }
 
 .logo-content {
@@ -784,8 +790,9 @@ h2 {
 
 .logo-content strong {
   display: block;
-  font-size: 1rem;
+  font-size: 1.05rem;
   line-height: 1.2;
+  letter-spacing: 0.02em;
   color: #fff;
 }
 
@@ -796,11 +803,12 @@ h2 {
 }
 
 .logo-card.full-width-brand .logo-content strong {
-  font-size: 1.2rem;
+  font-size: 1.35rem;
 }
 
 .logo-card.full-width-brand .logo-content span {
-  font-size: 0.95rem;
+    font-size: 1rem;
+  opacity: 0.9;
 }
 /* CONTACT */
 
@@ -1654,4 +1662,23 @@ select {
 
 #gallery .section-intro {
   margin-bottom: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .brand img {
+    width: 52px;
+    height: 52px;
+  }
+
+  .logo-card img {
+    width: 68px;
+  }
+
+  .logo-content strong {
+    font-size: 1.12rem;
+  }
+
+  .logo-content span {
+    font-size: 0.88rem;
+  }
 }
