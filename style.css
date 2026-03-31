@@ -321,8 +321,8 @@ select {
 
 h1 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(1.85rem, 2.5vw, 2.65rem);
-  line-height: 1.02;
+  font-size: clamp(1.6rem, 2.2vw, 2.2rem);
+  line-height: 1.05;
   letter-spacing: -0.025em;
   max-width: 8.2ch;
   text-wrap: balance;
@@ -469,7 +469,8 @@ h2 {
 .card {
   background: linear-gradient(180deg, rgba(255,255,255,0.042), rgba(255,255,255,0.028));
   border: 1px solid var(--line);
-  border-radius: 22px;
+  border-radius: 18px;
+  padding: 1rem;
   box-shadow: var(--shadow);
 }
 
@@ -1147,7 +1148,7 @@ select {
 
 .findus-page {
   position: relative;
-  padding: 5.2rem 0;
+  padding: 3.2rem 0 2.2rem;
   overflow: hidden;
   isolation: isolate;
 }
@@ -1226,7 +1227,7 @@ select {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 1rem;
-  padding: 1.05rem 0;
+  padding: 0.8rem 0;
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
@@ -1287,6 +1288,10 @@ select {
   align-self: stretch;
 }
 
+.findus-sidebar .card {
+  padding: 1rem;
+}
+
 .findus-map {
   min-height: 0;
   height: 100%;
@@ -1294,15 +1299,18 @@ select {
 
 .findus-map iframe {
   width: 100%;
-  height: 100%;
+  height: 260px;
+  border-radius: 16px;
   min-height: 370px;
   border: 0;
   display: block;
   filter: grayscale(0.08) contrast(1.02);
 }
 
+
+
 .findus-card {
-  padding: 1.35rem;
+  padding: 1.2rem;
 }
 
 .findus-card .mini-label {
@@ -1310,14 +1318,14 @@ select {
 }
 
 .findus-card h3 {
-  font-size: 1.55rem;
+  font-size: 1.2rem;
   line-height: 1.15;
   margin-bottom: 0.7rem;
 }
 
 .findus-card p {
   color: var(--text-soft);
-  font-size: 0.94rem;
+  font-size: 0.9rem;
   line-height: 1.75;
 }
 
@@ -1337,6 +1345,10 @@ select {
   flex-direction: column;
   gap: 0.8rem;
   margin-top: 1.15rem;
+}
+
+.findus-layout {
+  gap: 1.2rem;
 }
 
 /* RESPONSIVE */
