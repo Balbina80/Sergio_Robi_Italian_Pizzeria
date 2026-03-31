@@ -958,23 +958,25 @@ select {
   background-image:
     linear-gradient(
       90deg,
-      rgba(6,6,7,0.88) 0%,
-      rgba(6,6,7,0.72) 38%,
-      rgba(6,6,7,0.46) 70%,
-      rgba(6,6,7,0.28) 100%
+      rgba(6,6,7,0.9) 0%,
+      rgba(6,6,7,0.72) 35%,
+      rgba(6,6,7,0.5) 65%,
+      rgba(6,6,7,0.32) 100%
     ),
-    url("images/oven-pizza.jpg");
+    url("images/oven-pizza.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   z-index: 0;
+  transform: scale(1.02);
 }
 
 .menu-page-hero::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.34) 100%);
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.14) 0%, rgba(0,0,0,0.4) 100%);
   z-index: 0;
 }
 
@@ -1128,67 +1130,130 @@ select {
 /* FIND US PAGE */
 
 .findus-page {
-  padding: 4.6rem 0;
+  position: relative;
+  padding: 5.2rem 0;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.findus-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(7,7,8,0.82), rgba(7,7,8,0.88)),
+    url("images/van_2.jpg") center center / cover no-repeat;
+  z-index: -2;
+}
+
+.findus-page::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top left, rgba(196, 73, 51, 0.14), transparent 24%),
+    radial-gradient(circle at bottom right, rgba(216, 178, 122, 0.08), transparent 28%);
+  z-index: -1;
+}
+
+.findus-page .section-intro {
+  max-width: 900px;
+  margin: 0 auto 2.4rem;
+  text-align: center;
+}
+
+.findus-page .section-label {
+  margin-bottom: 0.7rem;
+}
+
+.findus-page .section-intro h1 {
+  max-width: 100%;
+  margin: 0 auto;
+  font-size: clamp(2.5rem, 5vw, 4.6rem);
+  line-height: 0.95;
+  text-wrap: balance;
+}
+
+.findus-page .section-intro p {
+  max-width: 760px;
+  margin: 1rem auto 0;
+  font-size: 1.04rem;
+  color: var(--text-soft);
 }
 
 .findus-layout {
   display: grid;
-  grid-template-columns: 1.12fr 0.88fr;
-  gap: 1rem;
-  align-items: start;
+  grid-template-columns: minmax(0, 1.18fr) minmax(340px, 0.82fr);
+  gap: 1.2rem;
+  align-items: stretch;
+}
+
+.findus-schedule,
+.findus-map,
+.findus-card {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.028));
+  border: 1px solid rgba(255,255,255,0.09);
+  box-shadow: 0 18px 44px rgba(0,0,0,0.3);
+  margin: 0;
 }
 
 .findus-schedule {
-  padding: 0.95rem 1.05rem;
+  padding: 1.05rem 1.2rem;
+  height: 100%;
 }
 
 .findus-day {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   gap: 1rem;
-  padding: 0.95rem 0;
+  padding: 1.05rem 0;
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .findus-day:first-child {
-  padding-top: 0.15rem;
+  padding-top: 0.2rem;
 }
 
 .findus-day:last-child {
   border-bottom: none;
-  padding-bottom: 0.15rem;
+  padding-bottom: 0.2rem;
 }
 
 .findus-day strong {
   display: block;
-  font-size: 0.96rem;
-  margin-bottom: 0.16rem;
+  font-size: 1rem;
+  margin-bottom: 0.18rem;
   color: var(--text);
 }
 
 .findus-day > div:first-child span {
   display: block;
-  color: var(--muted);
-  font-size: 0.84rem;
+  color: var(--text-soft);
+  font-size: 0.88rem;
 }
 
 .findus-meta {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 0.22rem;
+  gap: 0.26rem;
   text-align: right;
+  flex-shrink: 0;
 }
 
 .findus-meta span {
   color: var(--muted);
-  font-size: 0.78rem;
+  font-size: 0.8rem;
 }
 
 .findus-meta a {
-  margin-top: 0.18rem;
+  margin-top: 0.22rem;
   color: var(--gold-soft);
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 700;
   transition: opacity var(--transition), transform var(--transition);
 }
@@ -1200,49 +1265,62 @@ select {
 
 .findus-sidebar {
   display: grid;
+  grid-template-rows: 1fr auto;
   gap: 1rem;
+  height: 100%;
+  align-self: stretch;
 }
 
 .findus-map {
-  overflow: hidden;
-  min-height: 300px;
+  min-height: 0;
+  height: 100%;
 }
 
 .findus-map iframe {
   width: 100%;
   height: 100%;
-  min-height: 300px;
+  min-height: 370px;
   border: 0;
   display: block;
-  filter: grayscale(0.12) contrast(1.02);
+  filter: grayscale(0.08) contrast(1.02);
 }
 
 .findus-card {
-  padding: 1.1rem;
+  padding: 1.35rem;
+}
+
+.findus-card .mini-label {
+  margin-bottom: 0.6rem;
 }
 
 .findus-card h3 {
-  font-size: 0.98rem;
-  margin-bottom: 0.42rem;
+  font-size: 1.55rem;
+  line-height: 1.15;
+  margin-bottom: 0.7rem;
 }
 
 .findus-card p {
-  color: var(--muted);
-  font-size: 0.84rem;
+  color: var(--text-soft);
+  font-size: 0.94rem;
+  line-height: 1.75;
 }
 
 .findus-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  margin-top: 1rem;
+  margin-top: 1.2rem;
+}
+
+.findus-actions .btn {
+  flex: 0 0 auto;
 }
 
 .findus-socials {
   display: flex;
   flex-direction: column;
-  gap: 0.68rem;
-  margin-top: 1rem;
+  gap: 0.8rem;
+  margin-top: 1.15rem;
 }
 
 /* RESPONSIVE */
@@ -1287,6 +1365,15 @@ select {
 
   .logo-card {
     min-height: 210px;
+  }
+
+  .findus-sidebar {
+    grid-template-rows: auto auto;
+    height: auto;
+  }
+
+  .findus-map {
+    height: auto;
   }
 }
 
@@ -1471,8 +1558,8 @@ select {
 
   .menu-page-hero::before {
     background-image:
-      linear-gradient(180deg, rgba(6,6,7,0.72) 0%, rgba(6,6,7,0.48) 36%, rgba(6,6,7,0.78) 100%),
-      url("images/oven-pizza.jpg");
+      linear-gradient(180deg, rgba(6,6,7,0.74) 0%, rgba(6,6,7,0.52) 36%, rgba(6,6,7,0.82) 100%),
+      url("images/oven-pizza.png");
     background-position: center;
   }
 
@@ -1497,8 +1584,26 @@ select {
     font-size: clamp(1.6rem, 6.8vw, 2.05rem);
   }
 
+  .findus-page {
+    padding: 4rem 0;
+  }
+
+  .findus-page .section-intro {
+    margin-bottom: 1.5rem;
+  }
+
+  .findus-page .section-intro h1 {
+    font-size: clamp(2.1rem, 9vw, 3rem);
+    max-width: 10ch;
+  }
+
+  .findus-page .section-intro p {
+    font-size: 0.92rem;
+  }
+
   .findus-day {
     grid-template-columns: 1fr;
+    gap: 0.65rem;
   }
 
   .findus-meta {
@@ -1509,6 +1614,15 @@ select {
   .findus-map,
   .findus-map iframe {
     min-height: 260px;
+    height: auto;
+  }
+
+  .findus-actions {
+    flex-direction: column;
+  }
+
+  .findus-actions .btn {
+    width: 100%;
   }
 
   .footer {
