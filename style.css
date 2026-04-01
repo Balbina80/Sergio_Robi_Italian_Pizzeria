@@ -1870,3 +1870,55 @@ select {
   opacity: 1;
   transform: translateX(2px);
 }
+
+.menu-desserts {
+  margin-top: 4rem;
+}
+
+.menu-subtitle {
+  text-align: center;
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+}
+
+.menu-items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+}
+
+.menu-item {
+  border-radius: 20px;
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  transition: all 0.3s ease;
+}
+
+.menu-item:hover {
+  transform: translateY(-6px);
+}
+
+.menu-item img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.menu-item-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.2rem;
+}
+
+.menu-item h4 {
+  font-size: 1rem;
+}
+
+.price {
+  font-weight: 600;
+  color: #d8b07a;
+}
