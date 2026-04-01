@@ -293,6 +293,7 @@ select {
 
 .hero-copy {
   max-width: 570px;
+  justify-self: start;
 }
 
 .eyebrow {
@@ -325,12 +326,13 @@ h1 {
   line-height: 1.05;
   letter-spacing: -0.025em;
   max-width: 8.2ch;
+  margin: 0 0 0.95rem;
   text-wrap: balance;
 }
 
 .hero-copy p {
   max-width: 520px;
-  margin-top: 0.9rem;
+  margin: 0;
   color: var(--text-soft);
   font-size: 0.9rem;
 }
@@ -344,7 +346,7 @@ h1 {
 
 .hero-card {
   justify-self: end;
-  width: min(100%, 320px);
+  width: min(100%, 290px);
   border-radius: 18px;
   background: linear-gradient(150deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
   border: 1px solid rgba(255,255,255,0.08);
@@ -353,17 +355,17 @@ h1 {
     0 14px 34px rgba(0,0,0,0.34),
     inset 0 1px 0 rgba(255,255,255,0.06);
   overflow: hidden;
-  transform: translateX(0) translateY(8px);
+  transform: translateX(0) translateY(34px);
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 .hero-card:hover {
-  transform: translateX(0) translateY(4px);
+  transform: translateX(0) translateY(28px);
 }
 
 .hero-card-image {
   width: 100%;
-  height: 82px;
+  height: 72px;
   overflow: hidden;
 }
 
@@ -374,29 +376,30 @@ h1 {
 }
 
 .hero-card-body {
-  padding: 0.72rem 0.82rem 0.82rem;
+  padding: 0.68rem 0.78rem 0.78rem;
 }
 
 .hero-card h3 {
-  font-size: 0.78rem;
-  line-height: 1.22;
-  margin-bottom: 0.22rem;
+  font-size: 0.72rem;
+  line-height: 1.18;
+  margin-bottom: 0.2rem;
 }
 
 .hero-card p {
   color: var(--muted);
-  font-size: 0.66rem;
+  font-size: 0.62rem;
+  line-height: 1.45;
 }
 
 .feature-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0.3rem;
-  margin-top: 0.5rem;
+  gap: 0.28rem;
+  margin-top: 0.45rem;
 }
 
 .feature-box {
-  padding: 0.36rem 0.28rem;
+  padding: 0.34rem 0.24rem;
   text-align: center;
   border-radius: 10px;
   background: rgba(255,255,255,0.04);
@@ -405,13 +408,13 @@ h1 {
 
 .feature-box strong {
   display: block;
-  font-size: 0.58rem;
+  font-size: 0.54rem;
   margin-bottom: 0.02rem;
 }
 
 .feature-box span {
   color: var(--muted);
-  font-size: 0.5rem;
+  font-size: 0.47rem;
 }
 
 /* SECTIONS */
