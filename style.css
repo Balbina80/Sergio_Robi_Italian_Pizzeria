@@ -302,13 +302,28 @@ h2 {
 }
 
 .btn-primary {
+  position: relative;
+  overflow: hidden;
   color: #fff;
   background: linear-gradient(135deg, #c44933 0%, #e36a3d 100%);
   box-shadow: var(--glow-red);
 }
 
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.25), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
 .btn-primary:hover {
   box-shadow: 0 14px 34px rgba(196, 73, 51, 0.3);
+}
+
+.btn-primary:hover::after {
+  opacity: 1;
 }
 
 .btn-secondary,
@@ -1013,6 +1028,54 @@ input::placeholder,
 textarea::placeholder,
 select {
   color: #ab9f92;
+}
+
+/* ========================================
+   EMAIL ENQUIRY BOX
+======================================== */
+
+.email-enquiry-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.email-enquiry-box h3 {
+  margin: 0;
+}
+
+.email-enquiry-box p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.enquiry-points {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: var(--text-soft);
+}
+
+.enquiry-points span {
+  display: block;
+  line-height: 1.6;
+}
+
+.email-note {
+  font-size: 0.85rem;
+  color: var(--muted-2);
+}
+
+.email-note a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.email-note a:hover {
+  text-decoration: underline;
 }
 
 /* ========================================
@@ -1773,65 +1836,6 @@ select {
   }
 }
 
-/* ========================================
-   MOBILE
-======================================== */
-
-@media (max-width: 900px) {
-  .menu-page-hero {
-    padding: 3rem 0 1.6rem;
-  }
-
-  .menu-page-copy h1,
-  .menu-page-copy h2 {
-    max-width: 100%;
-    font-size: clamp(1.7rem, 7vw, 2.5rem);
-  }
-
-  .menu-page-copy p {
-    font-size: 0.9rem;
-  }
-
-  .menu-page-note {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .menu-full-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .menu-line p {
-    max-width: 100%;
-  }
-
-  .findus-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .findus-page .section-intro h1 {
-    font-size: clamp(1.8rem, 7vw, 2.4rem);
-  }
-
-  .findus-day {
-    grid-template-columns: 1fr;
-  }
-
-  .findus-meta {
-    align-items: flex-start;
-    text-align: left;
-  }
-
-  .findus-map iframe {
-    height: 200px;
-    min-height: 200px;
-  }
-
-  .menu-items {
-    grid-template-columns: 1fr;
-  }
-}
-
 @media (max-width: 760px) {
   :root {
     --radius-xl: 24px;
@@ -1989,10 +1993,10 @@ select {
   }
 
   h1 {
-    max-width: 10ch;
+    max-width: 7ch;
     margin-bottom: 0.8rem;
-    font-size: clamp(2.15rem, 9vw, 3rem);
-    line-height: 0.98;
+    font-size: clamp(2.15rem, 8vw, 2.9rem);
+    line-height: 0.95;
     text-shadow: 0 8px 24px rgba(0, 0, 0, 0.34);
   }
 
@@ -2012,19 +2016,21 @@ select {
 
   .hero {
     min-height: auto;
+    padding: 3.4rem 0 2.2rem;
   }
 
   .hero::before {
     background-image:
       linear-gradient(
         180deg,
-        rgba(6, 6, 7, 0.52) 0%,
-        rgba(6, 6, 7, 0.24) 24%,
-        rgba(6, 6, 7, 0.58) 62%,
+        rgba(6, 6, 7, 0.46) 0%,
+        rgba(6, 6, 7, 0.20) 20%,
+        rgba(6, 6, 7, 0.54) 56%,
         rgba(6, 6, 7, 0.82) 100%
       ),
       url("images/van_1.jpg");
-    background-position: center;
+    background-size: cover;
+    background-position: 60% 36%;
   }
 
   .hero::after {
@@ -2034,7 +2040,7 @@ select {
   .hero-inner {
     grid-template-columns: 1fr;
     gap: 1.15rem;
-    padding: 2.1rem 0 2.5rem;
+    padding: 1rem 0 2rem;
     align-items: end;
   }
 
@@ -2322,11 +2328,15 @@ select {
     padding: 1.5rem 1rem 1.2rem;
   }
 
-  .logo-card.full-width-brand img,
   .logo-card img {
     max-width: 76px;
     max-height: 76px;
-    margin-bottom: 0.9rem;
+  }
+
+  .logo-card.full-width-brand img {
+    max-width: 160px;
+    max-height: 160px;
+    margin-bottom: 1rem;
   }
 
   .logo-content strong,
@@ -2641,48 +2651,20 @@ select {
   .social-link {
     padding: 0.15rem 0;
   }
-}
 
-@media (max-width: 380px) {
-  .container {
-    width: min(100% - 1rem, var(--container));
+  .menu-line-title {
+    gap: 0.75rem;
   }
 
-  h1,
-  .menu-page-copy h1,
-  .menu-page-copy h2,
-  .findus-page .section-intro h1 {
-    max-width: 100%;
-    font-size: clamp(1.9rem, 9vw, 2.45rem);
+  .menu-thumb {
+    width: 58px;
+    height: 58px;
+    min-width: 58px;
+    border-radius: 12px;
   }
 
-  .brand-text span {
-    letter-spacing: 0.12em;
-  }
-
-  .btn {
-    font-size: 0.92rem;
-  }
-
-  .hero-card-image {
-    height: 104px;
-  }
-
-  .gallery-item,
-  .gallery-item.oven-card,
-  .gallery-item.window-card,
-  .full-width-brand {
-    min-height: 230px;
-    height: 230px;
-  }
-
-  .menu-item {
-    gap: 0.72rem;
-  }
-
-  .menu-item img {
-    width: 70px;
-    height: 70px;
+  .menu-line-with-thumb p {
+    padding-left: calc(58px + 0.75rem);
   }
 }
 
@@ -2741,101 +2723,4 @@ select {
   max-width: 100%;
   padding-left: calc(68px + 0.85rem);
   margin-top: 0.45rem;
-}
-
-@media (max-width: 760px) {
-  .menu-line-title {
-    gap: 0.75rem;
-  }
-
-  .menu-thumb {
-    width: 58px;
-    height: 58px;
-    min-width: 58px;
-    border-radius: 12px;
-  }
-
-  .menu-line-with-thumb p {
-    padding-left: calc(58px + 0.75rem);
-  }
-}
-
-@media (max-width: 380px) {
-  .menu-thumb {
-    width: 52px;
-    height: 52px;
-    min-width: 52px;
-  }
-
-  .menu-line-with-thumb p {
-    padding-left: calc(52px + 0.7rem);
-  }
-}
-
-.email-enquiry-box {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-.email-enquiry-box h3 {
-  margin: 0;
-}
-
-.email-enquiry-box p {
-  margin: 0;
-  color: var(--muted);
-  line-height: 1.7;
-}
-
-.enquiry-points {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  font-size: 0.95rem;
-  color: var(--text-soft);
-}
-
-.email-note {
-  font-size: 0.85rem;
-  color: var(--muted-2);
-}
-
-.email-note a {
-  color: var(--gold);
-  text-decoration: none;
-}
-
-.email-note a:hover {
-  text-decoration: underline;
-}
-
-.enquiry-points {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  margin-top: 0.5rem;
-}
-
-.enquiry-points span {
-  display: block;
-  line-height: 1.6;
-}
-
-.btn-primary {
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-primary::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.25), transparent 60%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.btn-primary:hover::after {
-  opacity: 1;
 }
