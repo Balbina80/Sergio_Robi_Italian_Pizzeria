@@ -2771,3 +2771,41 @@ select {
     padding-left: calc(52px + 0.7rem);
   }
 }
+
+.email-enquiry-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.email-enquiry-box h3 {
+  margin: 0;
+}
+
+.email-enquiry-box p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.enquiry-points {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.95rem;
+  color: var(--text-soft);
+}
+
+.email-note {
+  font-size: 0.85rem;
+  color: var(--muted-2);
+}
+
+.email-note a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+.email-note a:hover {
+  text-decoration: underline;
+}
