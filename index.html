@@ -119,7 +119,7 @@
 
         <div class="story-grid">
           <div class="card image-cover">
-            <img src="images/van_1.jpg" alt="Sergio & Robi pizza van">
+            <img src="images/van_3.jpg" alt="Sergio & Robi pizza van">
             <div class="floating-badge">Wood Fired Pizza • Mobile Catering • Event Hire</div>
           </div>
 
@@ -529,26 +529,118 @@
 </footer>
 
   <script>
-    const menuToggle = document.querySelector('.menu-toggle');
-    const siteNav = document.querySelector('#site-nav');
+/* ========================================
+   MOBILE MENU (ENHANCED)
+======================================== */
 
-    if (menuToggle && siteNav) {
-      menuToggle.addEventListener('click', () => {
-        siteNav.classList.toggle('active');
-        menuToggle.classList.toggle('active');
+const menuToggle = document.querySelector('.menu-toggle');
+const siteNav = document.querySelector('#site-nav');
 
-        const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-        menuToggle.setAttribute('aria-expanded', String(!isExpanded));
-      });
+if (menuToggle && siteNav) {
+  menuToggle.addEventListener('click', () => {
+    siteNav.classList.toggle('active');
+    menuToggle.classList.toggle('active');
 
-      siteNav.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          siteNav.classList.remove('active');
-          menuToggle.classList.remove('active');
-          menuToggle.setAttribute('aria-expanded', 'false');
-        });
-      });
+    const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+    menuToggle.setAttribute('aria-expanded', String(!isExpanded));
+  });
+
+  // Close menu on link click
+  siteNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      siteNav.classList.remove('active');
+      menuToggle.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!menuToggle.contains(e.target) && !siteNav.contains(e.target)) {
+      siteNav.classList.remove('active');
+      menuToggle.classList.remove('active');
+      menuToggle.setAttribute('aria-expanded', 'false');
     }
-  </script>
+  });
+}
+
+
+/* ========================================
+   REVEAL ANIMATION (LUXURY SCROLL)
+======================================== */
+
+const revealItems = document.querySelectorAll(
+  '.reveal, .reveal-left, .reveal-right'
+);
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target); // smoother, no repeat
+    }
+  });
+}, {
+  threshold: 0.14
+});
+
+revealItems.forEach((item) => {
+  revealObserver.observe(item);
+});
+
+
+/* ========================================
+   SMOOTH SCROLL (PREMIUM FEEL)
+======================================== */
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const targetId = this.getAttribute('href');
+
+    if (targetId.length > 1) {
+      e.preventDefault();
+
+      const target = document.querySelector(targetId);
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }
+  });
+});
+
+
+/* ========================================
+   HEADER SCROLL EFFECT (PRO LOOK)
+======================================== */
+
+const header = document.querySelector('.site-header');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 40) {
+    header.style.boxShadow = "0 10px 30px rgba(0,0,0,0.35)";
+    header.style.background = "rgba(6, 6, 7, 0.88)";
+  } else {
+    header.style.boxShadow = "none";
+    header.style.background = "rgba(6, 6, 7, 0.72)";
+  }
+});
+
+
+/* ========================================
+   HERO PARALLAX (SUBTLE PREMIUM)
+======================================== */
+
+const hero = document.querySelector('.hero');
+
+if (hero) {
+  window.addEventListener('scroll', () => {
+    const offset = window.scrollY * 0.2;
+    hero.style.backgroundPosition = `center ${offset}px`;
+  });
+}
+</script>
 </body>
 </html>

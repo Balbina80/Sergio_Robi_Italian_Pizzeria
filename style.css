@@ -148,6 +148,77 @@ h2 {
 }
 
 /* ========================================
+   LUXURY REVEAL ANIMATIONS
+======================================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(34px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-34px);
+  transition:
+    opacity 0.85s ease,
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(34px);
+  transition:
+    opacity 0.85s ease,
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.delay-1 {
+  transition-delay: 0.08s;
+}
+
+.delay-2 {
+  transition-delay: 0.16s;
+}
+
+.delay-3 {
+  transition-delay: 0.24s;
+}
+
+.delay-4 {
+  transition-delay: 0.32s;
+}
+
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================================
    HEADER / NAV
 ======================================== */
 
@@ -275,10 +346,13 @@ h2 {
 }
 
 /* ========================================
-   BUTTONS
+   BUTTONS — ULTRA PREMIUM
 ======================================== */
 
 .btn {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -294,36 +368,70 @@ h2 {
     box-shadow var(--transition),
     background var(--transition),
     border-color var(--transition),
-    color var(--transition);
+    color var(--transition),
+    filter var(--transition);
 }
 
-.btn:hover {
-  transform: translateY(-2px);
-}
-
-.btn-primary {
-  position: relative;
-  overflow: hidden;
-  color: #fff;
-  background: linear-gradient(135deg, #c44933 0%, #e36a3d 100%);
-  box-shadow: var(--glow-red);
-}
-
-.btn-primary::after {
+.btn::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.25), transparent 60%);
+  border-radius: inherit;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.07) 32%,
+    rgba(255, 255, 255, 0.22) 48%,
+    rgba(255, 255, 255, 0.07) 64%,
+    transparent 100%
+  );
+  transform: translateX(-125%);
+  transition: transform 0.75s ease;
+  z-index: -1;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.12), transparent 58%);
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.35s ease;
+  z-index: -1;
+}
+
+.btn:hover {
+  transform: translateY(-2px) scale(1.01);
+}
+
+.btn:hover::before {
+  transform: translateX(125%);
+}
+
+.btn:hover::after {
+  opacity: 1;
+}
+
+.btn:active {
+  transform: translateY(0) scale(0.99);
+}
+
+.btn-primary {
+  color: #fff;
+  background: linear-gradient(135deg, #b93f2c 0%, #d55435 48%, #ea7c43 100%);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 12px 28px rgba(196, 73, 51, 0.24),
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset;
 }
 
 .btn-primary:hover {
-  box-shadow: 0 14px 34px rgba(196, 73, 51, 0.3);
-}
-
-.btn-primary:hover::after {
-  opacity: 1;
+  box-shadow:
+    0 18px 38px rgba(196, 73, 51, 0.32),
+    0 0 24px rgba(227, 106, 61, 0.18),
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+  filter: saturate(1.05);
 }
 
 .btn-secondary,
@@ -338,6 +446,7 @@ h2 {
 .btn-outline:hover {
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
 }
 
 .btn-ghost {
@@ -348,6 +457,7 @@ h2 {
 
 .btn-ghost:hover {
   background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.16);
 }
 
 /* ========================================
@@ -360,6 +470,7 @@ h2 {
   display: grid;
   place-items: center;
   overflow: hidden;
+  isolation: isolate;
 }
 
 .hero::before {
@@ -367,19 +478,33 @@ h2 {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(90deg, rgba(6, 6, 7, 0.78) 0%, rgba(6, 6, 7, 0.5) 38%, rgba(6, 6, 7, 0.22) 68%, rgba(6, 6, 7, 0.12) 100%),
-    url("images/van_1.jpg");
+    linear-gradient(
+      90deg,
+      rgba(6, 6, 7, 0.82) 0%,
+      rgba(6, 6, 7, 0.56) 34%,
+      rgba(6, 6, 7, 0.28) 68%,
+      rgba(6, 6, 7, 0.14) 100%
+    ),
+    url("images/van_3.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  transform: scale(1.02);
+  transform: scale(1.03);
+  transition: transform 6.5s ease;
+  will-change: transform;
+}
+
+.hero:hover::before {
+  transform: scale(1.08);
 }
 
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.04) 0%, rgba(0, 0, 0, 0.16) 64%, #0b0c0f 100%);
+  background:
+    linear-gradient(180deg, rgba(255, 140, 60, 0.04), rgba(0, 0, 0, 0.18)),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.04) 0%, rgba(0, 0, 0, 0.16) 64%, #0b0c0f 100%);
 }
 
 .hero-inner {
@@ -395,6 +520,7 @@ h2 {
 .hero-copy {
   max-width: 570px;
   justify-self: start;
+  animation: hero-fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .hero-copy p {
@@ -465,10 +591,15 @@ h2 {
   overflow: hidden;
   transform: translateX(0) translateY(34px);
   transition: transform 0.35s ease, box-shadow 0.35s ease;
+  animation: hero-fade-up 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.1s;
 }
 
 .hero-card:hover {
   transform: translateX(0) translateY(28px);
+  box-shadow:
+    0 18px 42px rgba(0, 0, 0, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 .hero-card-image {
@@ -1968,7 +2099,9 @@ select {
   }
 
   .btn-primary {
-    box-shadow: 0 14px 28px rgba(196, 73, 51, 0.22);
+    box-shadow:
+      0 14px 28px rgba(196, 73, 51, 0.22),
+      0 0 18px rgba(227, 106, 61, 0.12);
   }
 
   .btn-secondary,
@@ -2023,18 +2156,25 @@ select {
     background-image:
       linear-gradient(
         180deg,
-        rgba(6, 6, 7, 0.46) 0%,
-        rgba(6, 6, 7, 0.20) 20%,
-        rgba(6, 6, 7, 0.54) 56%,
-        rgba(6, 6, 7, 0.82) 100%
+        rgba(6, 6, 7, 0.55) 0%,
+        rgba(6, 6, 7, 0.24) 28%,
+        rgba(6, 6, 7, 0.40) 62%,
+        rgba(6, 6, 7, 0.86) 100%
       ),
-      url("images/van_1.jpg");
+      url("images/van_3.jpg");
     background-size: cover;
     background-position: 60% 36%;
+    transform: scale(1.02);
+  }
+
+  .hero:hover::before {
+    transform: scale(1.04);
   }
 
   .hero::after {
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0.12) 48%, #0b0c0f 100%);
+    background:
+      linear-gradient(180deg, rgba(255, 140, 60, 0.03), rgba(0, 0, 0, 0.16)),
+      linear-gradient(180deg, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0.12) 48%, #0b0c0f 100%);
   }
 
   .hero-inner {
@@ -2723,4 +2863,33 @@ select {
   max-width: 100%;
   padding-left: calc(68px + 0.85rem);
   margin-top: 0.45rem;
+}
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .reveal,
+  .reveal-left,
+  .reveal-right {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .hero::before,
+  .hero:hover::before {
+    transform: scale(1.02) !important;
+  }
 }
