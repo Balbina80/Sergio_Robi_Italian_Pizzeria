@@ -3195,3 +3195,108 @@ h1 {
 .hero-inner {
   align-items: center;
 }
+
+/* FINAL PREMIUM HERO LAYOUT */
+@media (min-width: 1025px) {
+  .hero {
+    min-height: 86vh !important;
+    padding: 0 !important;
+    margin-right: -16px !important;
+  }
+
+  .hero::before {
+    background-position: center 64% !important;
+    transform: scale(1.01) !important;
+  }
+
+  .hero:hover::before {
+    transform: scale(1.025) !important;
+  }
+
+  .hero-inner {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(360px, 400px) !important;
+    gap: clamp(2rem, 4vw, 4rem) !important;
+    align-items: center !important;
+    padding: 0.4rem 0 0.8rem !important;
+  }
+
+  .hero-copy {
+    transform: translateX(5px) !important;
+    max-width: 690px !important;
+  }
+
+  .hero h1,
+  .hero-title {
+    font-size: clamp(2.75rem, 3.5vw, 3.75rem) !important;
+    line-height: 0.92 !important;
+    letter-spacing: -0.04em !important;
+    max-width: 11ch !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .hero-copy p {
+    font-size: 0.86rem !important;
+    line-height: 1.55 !important;
+    max-width: 58ch !important;
+  }
+
+  .hero-quick-points {
+    gap: 0.6rem !important;
+    margin-top: 1rem !important;
+  }
+
+  .hero-actions {
+    gap: 0.7rem !important;
+    margin-top: 1.2rem !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .hero-actions .btn {
+    padding: 0.9rem 1.25rem !important;
+    font-size: 0.88rem !important;
+    white-space: nowrap !important;
+  }
+
+  .hero-card {
+    width: min(100%, 335px) !important;
+    justify-self: end !important;
+    transform: translateY(10px) !important;
+    border-radius: 26px !important;
+  }
+
+  .hero-card:hover {
+    transform: translateY(4px) scale(1.01) !important;
+  }
+
+  .hero-card-image {
+    height: 150px !important;
+  }
+
+  .hero-card-body {
+    padding: 1.2rem !important;
+  }
+
+  .hero-card h3 {
+    font-size: 1.18rem !important;
+    line-height: 1.1 !important;
+  }
+
+  .hero-card p {
+    font-size: 0.84rem !important;
+    line-height: 1.55 !important;
+  }
+
+  .hero-card .feature-box {
+    min-height: 108px !important;
+    padding: 0.7rem 0.45rem !important;
+  }
+
+  .hero-card .feature-box strong {
+    font-size: 0.72rem !important;
+  }
+
+  .hero-card .feature-box span:not(.icon) {
+    font-size: 0.62rem !important;
+  }
+}
