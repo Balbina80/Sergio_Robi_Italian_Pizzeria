@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sergiorobipizzeria.co.uk/sitemap.xml
