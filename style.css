@@ -3107,10 +3107,16 @@ select {
 @media (max-width: 760px) {
   .hero::before {
     background-image:
-      linear-gradient(180deg, rgba(6,6,7,0.74) 0%, rgba(6,6,7,0.48) 36%, rgba(6,6,7,0.92) 100%),
+      linear-gradient(
+        180deg,
+        rgba(6,6,7,0.45) 0%,
+        rgba(6,6,7,0.25) 36%,
+        rgba(6,6,7,0.75) 100%
+      ),
       url("images/main-hero.png") !important;
-    background-position: center !important;
-    filter: contrast(1.08) brightness(1.02) saturate(1.05) !important;
+
+    background-position: 65% center !important;
+    filter: contrast(1.08) brightness(1.12) saturate(1.08) !important;
   }
 
   .hero-card {
