@@ -3306,3 +3306,9 @@ h1 {
     font-size: 0.62rem !important;
   }
 }
+
+@media (min-width: 600px) and (max-width: 900px) {
+  .hero::before {
+    background-position: 70% center !important;
+  }
+}
