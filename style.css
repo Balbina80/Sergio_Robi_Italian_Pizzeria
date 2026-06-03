@@ -3376,3 +3376,39 @@ h1 {
 .order-modal-buttons .btn-outline {
   display: none;
 }
+
+.mobile-order-float {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-order-float {
+    display: flex;
+    position: fixed;
+
+    right: 16px;
+    left: auto;
+    bottom: 16px;
+
+    transform: none;
+
+    z-index: 9998;
+
+    align-items: center;
+    justify-content: center;
+
+    width: auto;
+    min-width: 200px;
+
+    padding: 15px 22px;
+
+    border-radius: 999px;
+    background: linear-gradient(135deg, #b85038, #df824b);
+    color: #fff !important;
+    font-weight: 800;
+    font-size: 1rem;
+    text-decoration: none;
+
+    box-shadow: 0 18px 35px rgba(184, 80, 56, .35);
+  }
+}
