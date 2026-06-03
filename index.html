@@ -45,8 +45,8 @@
         <a href="find-us-en.html">Find Us</a>
         <a href="#events">Events</a>
         <a href="#gallery">Gallery</a>
-        <a href="https://online.skytab.com/44f2e0061df8a4a449760e8338502236" target="_blank" class="btn btn-primary">
-        🍕 Order Online
+        <a href="#" class="btn btn-primary" onclick="openOrderModal(); return false;">
+          🍕 Order Online
         </a>
         <a href="#contact" class="btn btn-outline">Book Us</a>
         <a href="index-it.html" class="lang-switch">IT</a>
@@ -658,5 +658,53 @@ if (hero) {
   });
 }
 </script>
+
+<!-- ORDER MODAL -->
+
+<div id="order-modal" class="order-modal">
+  <div class="order-modal-content">
+    <h3>📍 Before You Order</h3>
+
+    <p>
+      All online orders are available for collection only.
+    </p>
+
+    <p>
+      Please collect your order directly from
+      <strong>Sergio & Robi's Pizzeria</strong>
+      at your selected collection time.
+    </p>
+
+    <p>
+      📍 <strong>Mobile Pizzeria</strong><br>
+      Our location changes regularly. Please check our
+      <a href="find-us-it.html">Find Us</a>
+      page before placing your order.
+    </p>
+
+    <div class="order-modal-buttons">
+      <a href="https://online.skytab.com/44f2e0061df8a4a449760e8338502236"
+         target="_blank"
+         class="btn btn-primary">
+         Continue to Order Online
+      </a>
+
+      <button onclick="closeOrderModal()" class="btn btn-outline">
+         Close
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+function openOrderModal() {
+  document.getElementById('order-modal').style.display = 'flex';
+}
+
+function closeOrderModal() {
+  document.getElementById('order-modal').style.display = 'none';
+}
+</script>
+
 </body>
 </html>
